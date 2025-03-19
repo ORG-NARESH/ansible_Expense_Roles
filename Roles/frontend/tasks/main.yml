@@ -1,1 +1,30 @@
-- name: install frontend
+- name: setting server name
+  ansible.builtin.shell: sudo set-hostname {{ component }}-{{  webserver  }}
+- name: install {{ component }} server {{ webserver }}
+  ansible.builtin.dnf:
+   name: "{{ webserver }}"
+   state: latest
+- name: Start service {{ webserver }}, if not started
+  ansible.builtin.service:
+    name: "{{ webserver }}"
+    state: started
+- name: Recursively remove html directory
+  ansible.builtin.file:
+    path: /usr/share/{{ webserver }}/html
+    state: absent
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /usr/share/{{ webserver }}/html
+    state: directory
+- name: Download front code from git repo and storing in temp
+  ansible.builtin.get_url:
+    url: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
+    dest: /tmp/{{ component }}.zip
+- name: Extract {{ component }}.zip into /var/lib/foo
+  ansible.builtin.unarchive:
+    src: /tmp/{{ component }}.zip
+    dest: /usr/share/{{ webserver }}/html
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: expense.conf
+    dest: /etc/{{ webserver }}/default.d/expense.conf
