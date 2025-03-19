@@ -13,6 +13,12 @@
     state: started
     enabled: yes
 
+- name: installing dependecies for mysql
+  ansible.builtin.yum:
+    name: python3-PyMySQL
+    state: present
+
+
 - name:   setting root password
   mysql_user:
     name: root
