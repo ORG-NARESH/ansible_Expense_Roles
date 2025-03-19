@@ -20,8 +20,8 @@
 
 
 - name:   setting root password
-  mysql_user:
-    name: root
-    password: ExpenseApp@1
+  community.mysql.mysql_db:
+    login_user: root
+    login_password: ExpenseApp@1
 
 
