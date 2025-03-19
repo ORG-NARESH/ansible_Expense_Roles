@@ -20,10 +20,12 @@
   ansible.builtin.get_url:
     url: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
     dest: /tmp/{{ component }}.zip
-- name: Extract {{ component }}.zip into /var/lib/foo
+- name: Extract {{ component }}.zip into html 
   ansible.builtin.unarchive:
     src: /tmp/{{ component }}.zip
     dest: /usr/share/{{ webserver }}/html
+    remote_src: yes
+
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
     src: expense.conf
