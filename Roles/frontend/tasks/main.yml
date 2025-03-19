@@ -29,7 +29,7 @@
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
     src: expense.conf
-    dest: /etc/"{{ webserver }}"/default.d/expense.conf
+    dest: /etc/{{ webserver }}/default.d/expense.conf
 
 - name: Start and enable service "{{ webserver }}"
   ansible.builtin.service:
