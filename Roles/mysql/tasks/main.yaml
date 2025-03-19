@@ -21,7 +21,7 @@
 
 - name:   setting root password
   community.mysql.mysql_db:
-    name: all
+    name: expensedb
     login_user: root
     login_password: ExpenseApp@1
 
