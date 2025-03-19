@@ -2,4 +2,4 @@
   hosts: frontend
   become: yes
   roles:
-    - role: "{{ component }}"
+     "{{ component }}"
