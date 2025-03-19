@@ -19,10 +19,9 @@
     state: present
 
 
-- name:   setting root password
-  community.mysql.mysql_db:
-    name: transactions
-    login_user: root
-    login_password: ExpenseApp@1
+- name: setting up root password
+  community.mysql.mysql_user:
+    name: root
+    password: ExpenseApp@1
 
 
