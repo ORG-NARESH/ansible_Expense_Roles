@@ -1,20 +1,20 @@
 - name: setting server name
   ansible.builtin.shell: set-hostname "{{ component }}"
-- name: install {{ component }} server {{ webserver }}
+- name: install {{ component }} server "{{ webserver }}"
   ansible.builtin.dnf:
    name: "{{ webserver }}"
    state: latest
-- name: Start service {{ webserver }}, if not started
+- name: Start service "{{ webserver }}", if not started
   ansible.builtin.service:
     name: "{{ webserver }}"
     state: started
 - name: Recursively remove html directory
   ansible.builtin.file:
-    path: /usr/share/{{ webserver }}/html
+    path: /usr/share/"{{ webserver }}"/html
     state: absent
 - name: Create a directory if it does not exist
   ansible.builtin.file:
-    path: /usr/share/{{ webserver }}/html
+    path: /usr/share/"{{ webserver }}"/html
     state: directory
 - name: Download front code from git repo and storing in temp
   ansible.builtin.get_url:
@@ -23,15 +23,15 @@
 - name: Extract {{ component }}.zip into html 
   ansible.builtin.unarchive:
     src: /tmp/{{ component }}.zip
-    dest: /usr/share/{{ webserver }}/html
+    dest: /usr/share/"{{ webserver }}"/html
     remote_src: yes
 
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
     src: expense.conf
-    dest: /etc/{{ webserver }}/default.d/expense.conf
+    dest: /etc/"{{ webserver }}"/default.d/expense.conf
 
-- name: Start and enable service {{ webserver }}
+- name: Start and enable service "{{ webserver }}"
   ansible.builtin.service:
     name: "{{ webserver }}"
     state: started
