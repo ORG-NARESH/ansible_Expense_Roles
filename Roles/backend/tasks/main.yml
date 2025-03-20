@@ -2,7 +2,7 @@
   ansible.builtin.shell: set-hostname "{{ component }}"
 - name: Install nodejs >= 20
   ansible.builtin.package:
-    name: nodejs=20
+    name: nodejs
     state: present
 - name: create user expense
   ansible.builtin.user:
