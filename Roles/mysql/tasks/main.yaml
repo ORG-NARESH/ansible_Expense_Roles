@@ -24,7 +24,6 @@
     check_implicit_admin: true
     login_user: root
     login_password: ExpenseApp@1
-    name: all
     state: present
 
 
