@@ -20,12 +20,7 @@
 
 
 - name: Try to create database as root/nopassword first. If not allowed, pass the credentials
-  community.mysql.mysql_db:
-    check_implicit_admin: true
-    login_user: root
-    login_password: ExpenseApp@1
-    state: present
-
+  community.mysql.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
 
 
 
