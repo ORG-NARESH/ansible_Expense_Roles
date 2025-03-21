@@ -30,14 +30,13 @@
     name: "{{ component }}"
     path: /app
     
-- name: Change file ownership, group and permissions
-  ansible.builtin.file:
-    path: /app
-    state: directory
-    recurse: yes
+- name: copy backend file
+  ansible.builtin.copy:
+    src: backend.service
+    dest: /etc/systemd/system/backend.service
     owner: expense
     group: expense
-    mode: '0755'
+    mode: '0775'
   
 - name: installing {{component }} server
   ansible.builtin.package:
