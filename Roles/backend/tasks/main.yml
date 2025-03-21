@@ -53,12 +53,12 @@
 #   name: all
 #   state: import
 #   target: /app/schema/backend.sql
-#   login_host: 172.31.38.21
+#   login_host: 172.31.43.131
 #   login_user: root
 #   login_password: ExpenseApp@1
 
 - name: installing {{component }} server
-  ansible.builtin.shell: mysql -h 172.31.38.21 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h 172.31.43.131 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 - name: Start and enable service "{{ component }}"
   ansible.builtin.systemd_service:
