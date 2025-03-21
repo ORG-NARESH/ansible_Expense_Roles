@@ -1,9 +1,11 @@
 - name: setting server name for {{ component }}
   ansible.builtin.shell: set-hostname "{{ component }}"
+  
 - name: Install nodejs >= 20
   ansible.builtin.package:
     name: nodejs
     state: present
+    
 - name: create user expense
   ansible.builtin.user:
     name: expense
@@ -11,10 +13,12 @@
   ansible.builtin.file:
     path: /app
     state: directory
+    
 - name: Download backend code from git repo and storing in temp
   ansible.builtin.get_url:
     url: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
     dest: /tmp/{{ component }}.zip
+    
 - name: Extract {{ component }}.zip into html 
   ansible.builtin.unarchive:
     src: /tmp/{{ component }}.zip
@@ -25,6 +29,7 @@
   community.general.npm:
     name: "{{ component }}"
     path: /app
+    
 - name: Change file ownership, group and permissions
   ansible.builtin.file:
     path: /app
@@ -33,10 +38,12 @@
     owner: expense
     group: expense
     mode: '0755'
+  
 - name: installing {{component }} server
   ansible.builtin.package:
     name: mysql-server
     state: present
+
 - name: installing dependecies for mysql
   ansible.builtin.yum:
     name: python3-PyMySQL
@@ -49,8 +56,9 @@
 #   login_host: 172.31.38.21
 #   login_user: root
 #   login_password: ExpenseApp@1
+
 - name: installing {{component }} server
-  ansible.builtin.cmd: mysql -h 172.31.38.21 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h 172.31.38.21 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 - name: Start and enable service "{{ component }}"
   ansible.builtin.systemd_service:
