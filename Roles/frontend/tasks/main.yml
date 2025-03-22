@@ -33,7 +33,7 @@
     remote_src: yes
 
 - name: Copy file with owner and permissions
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
