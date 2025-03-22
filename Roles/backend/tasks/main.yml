@@ -57,11 +57,17 @@
 #   login_password: ExpenseApp@1
 
 - name: installing {{component }} server
-  ansible.builtin.shell: mysql -h 172.31.43.131 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h 172.31.36.109 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 - name: Start and enable service "{{ component }}"
   service:
     name: backend
     state: reloaded
     enabled: yes
-    state: started
+
+- name: Start and enable service "{{ component }}"
+  service:
+    name: backend
+    state: restarted
+    
+   
