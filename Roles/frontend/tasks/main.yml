@@ -26,10 +26,10 @@
     url: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
     dest: /tmp/{{ component }}.zip
 
-- name: Extract {{ component }}.zip into html 
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
   ansible.builtin.unarchive:
-    src: /tmp/{{ component }}.zip
-    dest: /usr/share/"{{ webserver }}"/html
+    src: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
+    dest: /usr/share/nginx/html
     remote_src: yes
 
 - name: Copy file with owner and permissions
