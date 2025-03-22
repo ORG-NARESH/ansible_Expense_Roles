@@ -40,5 +40,5 @@
 - name: Start and enable service "{{ webserver }}"
   ansible.builtin.service:
     name: "{{ webserver }}"
-    state: started
+    state: restarted
     enabled: yes
