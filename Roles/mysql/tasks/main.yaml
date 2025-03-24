@@ -13,13 +13,13 @@
     state: started
     enabled: yes
 
-- name: installing dependecies for mysql
-  ansible.builtin.yum:
-    name: python3-PyMySQL
-    state: present
+# - name: installing dependecies for mysql
+#   ansible.builtin.yum:
+#     name: python3-PyMySQL
+#     state: present
 
 
-- name: Try to create database as root/nopassword first. If not allowed, pass the credentials
+- name: Try to create database as root
   ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
 
 

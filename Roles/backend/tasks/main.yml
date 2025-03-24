@@ -1,5 +1,8 @@
 - name: setting server name for {{ component }}
   ansible.builtin.shell: set-hostname "{{ component }}"
+
+- name: disble nodejs module
+  ansible.builtin.shell: dnf module disable nodejs -y
   
 - name: Install nodejs >= 20
   ansible.builtin.package:
@@ -9,6 +12,7 @@
 - name: create user expense
   ansible.builtin.user:
     name: expense
+
 - name: Create a directory if it does not exist
   ansible.builtin.file:
     path: /app
@@ -44,30 +48,28 @@
     state: present
 
 - name: installing dependecies for mysql
-  ansible.builtin.yum:
-    name: python3-PyMySQL
-    state: present
-#- name: injecting schema
-# mysql_db:
-#   name: all
-#   state: import
-#   target: /app/schema/backend.sql
-#   login_host: 172.31.43.131
-#   login_user: root
-#   login_password: ExpenseApp@1
+  ansible.builtin.pip:
+    name: 
+    - PyMySQL
+    - cryptography
+    executable: pip3.11
 
-- name: installing {{component }} server
-  ansible.builtin.shell: mysql -h 172.31.36.109 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+- name: injecting schema
+  mysql_db:
+   name: all
+   state: import
+   target: /app/schema/backend.sql
+   login_host: "{{ SQL_HOST }}"
+   login_user: root
+   login_password: ExpenseApp@1
 
-- name: Start and enable service "{{ component }}"
-  service:
-    name: backend
-    state: reloaded
-    enabled: yes
+# - name: installing {{component }} server
+#   ansible.builtin.shell: mysql -h "{{ SQL_HOST }}" -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
-- name: Start and enable service "{{ component }}"
-  service:
-    name: backend
+- name: Restart service 
+  ansible.builtin.systemd_service:
     state: restarted
+    daemon_reload: true
+    name: backend
     
    
