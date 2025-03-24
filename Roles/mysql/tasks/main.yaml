@@ -2,7 +2,7 @@
   ansible.builtin.shell: set-hostname "{{ component }}"
 
 - name: installing {{component }} server
-  ansible.builtin.package:
+  ansible.builtin.yum:
     name: mysql-server
     state: present
    

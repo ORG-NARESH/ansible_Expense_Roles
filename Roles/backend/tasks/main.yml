@@ -23,6 +23,10 @@
   ansible.builtin.file:
     path: /app
     state: directory
+    recurse: yes
+    owner: expense
+    group: expense
+    mode: '0775'
     
 - name: Download backend code from git repo and storing in temp
   ansible.builtin.get_url:
@@ -37,16 +41,15 @@
 
 - name: Install {{ component }} node.js package.
   community.general.npm:
-    name: "{{ component }}"
+    
     path: /app
+    state: present
     
 - name: copy backend file
   ansible.builtin.copy:
     src: backend.service
     dest: /etc/systemd/system/backend.service
-    owner: expense
-    group: expense
-    mode: '0775'
+   
   
 - name: installing {{component }} server
   ansible.builtin.package:
