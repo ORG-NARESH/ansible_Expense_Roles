@@ -8,7 +8,7 @@
   ansible.builtin.dnf:
     name: nodejs
     state: present
-    stream: 20
+    
     
 - name: create user expense
   ansible.builtin.user:
