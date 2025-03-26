@@ -4,7 +4,7 @@
 - name: install {{ component }} server nginx
   ansible.builtin.dnf:
    name: nginx
-   state: latest
+   state: present
 
 
 - name: Recursively remove html directory
