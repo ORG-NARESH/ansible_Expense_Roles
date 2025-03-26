@@ -68,7 +68,7 @@
    name: all
    state: import
    target: /app/schema/backend.sql
-   login_host: "{{ SQL_HOST }}"
+   login_host: 172.31.34.76
    login_user: root
    login_password: ExpenseApp@1
 
