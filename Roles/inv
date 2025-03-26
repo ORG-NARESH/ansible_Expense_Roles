@@ -4,3 +4,9 @@
 172.31.39.44 ansible_python_interpreter=/usr/bin/python3.11
 [mysql]
 172.31.34.76                                                                                                                                                                                        
+
+
+[all:children]
+mysql
+backend
+frontend

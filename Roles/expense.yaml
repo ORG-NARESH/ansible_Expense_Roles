@@ -1,11 +1,12 @@
 - name: Install components
+  hosts: all
   become: yes
   tasks:
     - name: Include roles for each component
-      hosts: "{{ item }}"
       include_role:
         name: "{{ item }}"
       loop:
         - mysql
         - backend
         - frontend
+      
