@@ -1,12 +1,11 @@
-- name: playbook installing "{{ component }}"
+- name: Install components
   hosts: "{{ component }}"
   become: yes
-  tasks:
-   - name: Run roles for each component
-     hosts: "{{ component }}"
-     include_role:
-      name: "{{ component }}"
-     loop:                         
-       - mysql
-       - backend
-       - frontend
+  roles:
+    - "{{ component }}"
+  vars:
+    component:
+      - mysql
+      - backend
+      - frontend
+  loop: "{{ component }}"
