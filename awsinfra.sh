@@ -17,3 +17,4 @@ echo -e "Creating $INSTANCE"
 IP_ADDRESS=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value="$INSTANCE"}]" --query 'Instances[0].PrivateIpAddress' --output text)
 
 echo -e "$INSTANCE IP is $IP_ADDRESS"
+done
