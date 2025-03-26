@@ -6,10 +6,6 @@
    name: "{{ webserver }}"
    state: latest
 
-- name: Start service "{{ webserver }}", if not started
-  ansible.builtin.service:
-    name: "{{ webserver }}"
-    state: started
 
 - name: Recursively remove html directory
   ansible.builtin.file:
@@ -28,7 +24,7 @@
 
 - name: Unarchive a file that needs to be downloaded (added in 2.0)
   ansible.builtin.unarchive:
-    src: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
+    src: /tmp/{{ component }}.zip
     dest: /usr/share/nginx/html
     remote_src: yes
 
