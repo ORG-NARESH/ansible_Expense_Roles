@@ -3,6 +3,7 @@
   become: yes
   tasks:
    - name: Run roles for each component
+     hosts: "{{ component }}"
      include_role:
       name: "{{ component }}"
      loop:                         
