@@ -1,5 +1,5 @@
 - name: Install components
-  hosts: "{{ component }}"
+  hosts: "{{ item }}"
   become: yes
   tasks:
     - name: Include roles for each component
