@@ -1,8 +1,8 @@
 - name: Install components
-  hosts: "{{ item }}"
   become: yes
   tasks:
     - name: Include roles for each component
+      hosts: "{{ item }}"
       include_role:
         name: "{{ item }}"
       loop:
