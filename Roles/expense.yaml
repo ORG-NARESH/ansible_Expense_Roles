@@ -1,11 +1,14 @@
-- name: Install components
-  hosts: "{{ component }}"
-  become: yes
-  roles:
+- name: play
+  tasks: 
+
+  - name: Install components
+    hosts: "{{ component }}"
+    become: yes
+    roles:
     - "{{ component }}"
-  vars:
-    component:
+    vars:
+     component:
       - mysql
       - backend
       - frontend
-  loop: "{{ component }}"
+    loop: "{{ component }}"
