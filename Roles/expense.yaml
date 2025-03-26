@@ -4,6 +4,6 @@
   roles:
    - "{{ component }}"
   with_items:                         
-    - mysql
-    - backend
-    - frontend
+    - "mysql"
+    - "backend"
+    - "frontend"
