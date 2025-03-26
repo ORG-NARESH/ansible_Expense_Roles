@@ -3,7 +3,7 @@
   become: yes
   roles:
    - "{{ component }}"
-  with_items:                         
+  loop:                         
     - "mysql"
     - "backend"
     - "frontend"
