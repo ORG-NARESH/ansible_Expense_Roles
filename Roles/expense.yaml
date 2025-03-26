@@ -2,10 +2,10 @@
   hosts: "{{ component }}"
   become: yes
   tasks:
-  - name: Run roles for each component
-    include_role:
-     name: "{{ component }}"
+   - name: Run roles for each component
+     include_role:
+      name: "{{ component }}"
      loop:                         
-      - mysql
-      - backend
-      - frontend
+       - mysql
+       - backend
+       - frontend
