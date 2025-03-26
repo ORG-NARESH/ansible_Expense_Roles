@@ -41,9 +41,9 @@
 
 - name: Install {{ component }} node.js package.
   community.general.npm:
-    
     path: /app
     state: present
+    
     
 - name: copy backend file
   ansible.builtin.copy:
@@ -64,7 +64,7 @@
     executable: pip3.11
 
 - name: injecting schema
-  mysql_db:
+  community.mysql.mysql_db:
    name: all
    state: import
    target: /app/schema/backend.sql
