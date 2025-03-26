@@ -1,12 +1,8 @@
 [frontend]
-172.31.39.45
+frontend.eternallearnings.shop
 [backend]
-172.31.39.44 ansible_python_interpreter=/usr/bin/python3.11
+backend.eternallearnings.shop
 [mysql]
-172.31.34.76                                                                                                                                                                                        
+mysql.eternallearnings.shop                                                                                                                                                                                      
 
 
-[all:children]
-mysql
-backend
-frontend
