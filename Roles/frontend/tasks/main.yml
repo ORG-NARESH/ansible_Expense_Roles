@@ -1,20 +1,20 @@
 - name: setting server name
   ansible.builtin.shell: set-hostname "{{ component }}"
 
-- name: install {{ component }} server "{{ webserver }}"
+- name: install {{ component }} server nginx
   ansible.builtin.dnf:
-   name: "{{ webserver }}"
+   name: nginx
    state: latest
 
 
 - name: Recursively remove html directory
   ansible.builtin.file:
-    path: /usr/share/"{{ webserver }}"/html
+    path: /usr/share/nginx/html
     state: absent
 
 - name: Create a directory if it does not exist
   ansible.builtin.file:
-    path: /usr/share/"{{ webserver }}"/html
+    path: /usr/share/nginx/html
     state: directory
 
 - name: Download front code from git repo and storing in temp
@@ -33,8 +33,8 @@
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
-- name: Start and enable service "{{ webserver }}"
+- name: Start and enable service nginx
   ansible.builtin.service:
-    name: "{{ webserver }}"
+    name: nginx
     state: restarted
     enabled: yes
