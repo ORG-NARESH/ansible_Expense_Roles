@@ -33,7 +33,7 @@
     url: https://expense-web-app.s3.amazonaws.com/{{ component }}.zip
     dest: /tmp/{{ component }}.zip
     
-- name: Extract {{ component }}.zip into html 
+- name: Extract {{ component }}.zip into /app
   ansible.builtin.unarchive:
     src: /tmp/{{ component }}.zip
     dest: /app
@@ -61,7 +61,11 @@
     name: 
     - PyMySQL
     - cryptography
-    executable: pip3.11
+    executable: /usr/bin/pip3.11
+    register: pip_install_result
+
+- name: checking pymysql and cryptography installed or not using shell
+  ansible.builtin.shell: pip3.11 list | grep -E 'PyMySQL|cryptography'
 
 - name: injecting schema
   community.mysql.mysql_db:
