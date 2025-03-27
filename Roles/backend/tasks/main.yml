@@ -79,7 +79,7 @@
 #    login_user: root
 #    login_password: ExpenseApp@1
 
-- name: installing {{component }} server
+- name: injecting schema using mysql
   ansible.builtin.shell: mysql -h mysql.eternallearnings.shop -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 - name: Restart service 
