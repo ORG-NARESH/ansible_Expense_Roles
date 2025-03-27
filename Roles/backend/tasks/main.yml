@@ -62,11 +62,7 @@
     - PyMySQL
     - cryptography
     executable: /usr/bin/pip3.11
-    register: pip_install_result
 
-- name: Debug installation output
-  debug:
-    var: pip_install_result
 
 - name: checking pymysql and cryptography installed or not using shell
   ansible.builtin.shell: pip3.11 list | grep -E 'PyMySQL|cryptography'
