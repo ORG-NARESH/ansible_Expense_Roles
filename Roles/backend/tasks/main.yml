@@ -59,28 +59,28 @@
 - name: installing dependecies for mysql
   ansible.builtin.pip:
     name: 
-    - PyMySQL
-    - cryptography
+     - PyMySQL
+     - cryptography
     executable: /usr/bin/pip3.11
 
 
-- name: install pymysql and cryptography
-  ansible.builtin.shell: pip3.11 install PyMySQL cryptography
+# - name: install pymysql and cryptography
+#   ansible.builtin.shell: pip3.11 install PyMySQL cryptography
 
-- name: checking pymysql and cryptography installed or not using shell
-  ansible.builtin.shell: pip3.11 list | grep -E 'PyMySQL|cryptography'
+# - name: checking pymysql and cryptography installed or not using shell
+#   ansible.builtin.shell: pip3.11 list | grep -E 'PyMySQL|cryptography'
 
-# - name: injecting schema
-#   community.mysql.mysql_db:
-#    name: all
-#    state: import
-#    target: /app/schema/backend.sql
-#    login_host: mysql.eternallearnings.shop
-#    login_user: root
-#    login_password: ExpenseApp@1
+- name: injecting schema
+  community.mysql.mysql_db:
+   name: all
+   state: import
+   target: /app/schema/backend.sql
+   login_host: mysql.eternallearnings.shop
+   login_user: root
+   login_password: ExpenseApp@1
 
-- name: injecting schema using mysql
-  ansible.builtin.shell: mysql -h mysql.eternallearnings.shop -uroot -pExpenseApp@1 < /app/schema/backend.sql
+# - name: injecting schema using mysql
+#   ansible.builtin.shell: mysql -h mysql.eternallearnings.shop -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 - name: Restart service 
   ansible.builtin.systemd_service:
