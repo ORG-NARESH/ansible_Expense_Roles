@@ -61,7 +61,8 @@
     name: 
     - PyMySQL
     - cryptography
-    executable: /usr/bin/pip3.11
+   # executable: /usr/bin/pip3.11
+    virtualenv: /home/ec2-user/venv
 
 - name: install pymysql and cryptography
   ansible.builtin.shell: pip3.11 install PyMySQL cryptography

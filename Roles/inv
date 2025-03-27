@@ -1,7 +1,7 @@
 [frontend]
 frontend.eternallearnings.shop
 [backend]
-backend.eternallearnings.shop
+backend.eternallearnings.shop 
 [mysql]
 mysql.eternallearnings.shop                                                                                                                                                                                      
 
