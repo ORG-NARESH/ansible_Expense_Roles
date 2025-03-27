@@ -5,7 +5,12 @@
   ansible.builtin.dnf:
    name: nginx
    state: present
-
+   
+- name: Start service nginx
+  ansible.builtin.service:
+    name: nginx
+    enabled: yes
+    state: started
 
 - name: Recursively remove html directory
   ansible.builtin.file:
