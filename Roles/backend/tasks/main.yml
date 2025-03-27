@@ -63,6 +63,8 @@
     - cryptography
     executable: /usr/bin/pip3.11
 
+- name: install pymysql and cryptography
+  ansible.builtin.shell: pip3.11 install PyMySQL cryptography
 
 - name: checking pymysql and cryptography installed or not using shell
   ansible.builtin.shell: pip3.11 list | grep -E 'PyMySQL|cryptography'
