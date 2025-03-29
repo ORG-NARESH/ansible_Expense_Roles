@@ -1,5 +1,7 @@
-- name: setting server name
-  ansible.builtin.shell: set-hostname "{{component}}-{{env}}"
+- name: Run tasks/pre-req.yaml instead of 'main'
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: pre-req
 
 - name: Remove existing Node.js version
   yum:

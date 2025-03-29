@@ -1,0 +1,2 @@
+- name: setting up server name for this instance
+  ansible.builtin.shell: set-hostname "{{component}}-{{env}}"
