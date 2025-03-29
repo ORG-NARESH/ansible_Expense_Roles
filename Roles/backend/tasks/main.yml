@@ -69,7 +69,7 @@
    name: all
    state: import
    target: /app/schema/backend.sql
-   login_host: mysql.eternallearnings.shop
+   login_host: "{{SQL_HOST}}"
    login_user: root
    login_password: ExpenseApp@1
 

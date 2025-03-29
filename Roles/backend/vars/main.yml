@@ -1,2 +1,2 @@
 component: ""
-SQL_HOST: "mysql.eternallearnings.shop"
+SQL_HOST: "mysql-{{env}}.eternallearnings.shop"
