@@ -2,6 +2,7 @@
   hosts: "{{component}}-{{env}}"
   become: yes
   roles:
+    -  common
     - "{{ component }}"
     
       
