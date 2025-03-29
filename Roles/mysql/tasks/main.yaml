@@ -1,5 +1,5 @@
 - name: setting server name
-  ansible.builtin.shell: set-hostname "{{ component }}"
+  ansible.builtin.shell: set-hostname "{{component}}-{{env}}"
 
 - name: installing {{component }} server
   ansible.builtin.yum:

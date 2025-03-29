@@ -1,5 +1,5 @@
-- name: play Install component {{component}}
-  hosts: "{{component}}"
+- name: play Install component {{component}}-{{env}}
+  hosts: "{{component}}-{{env}}"
   become: yes
   roles:
     - "{{ component }}"

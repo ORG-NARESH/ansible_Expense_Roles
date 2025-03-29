@@ -1,8 +1,0 @@
-[frontend]
-frontend.eternallearnings.shop
-[backend]
-backend.eternallearnings.shop ansible_python_interpreter=/usr/bin/python3.11
-[mysql]
-mysql.eternallearnings.shop   ansible_python_interpreter=/usr/bin/python3.11                                                                                                                                                                   
-
-
