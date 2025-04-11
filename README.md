@@ -5,6 +5,8 @@ this is expense project with roles
 
 ansible-playbook -i inv-dev -e ansible_username=ec2-user -e ansible_password=DevOps321 -e env=dev expense.yml
 
+ansible-playbook -i inv-dev -e ansible_username=ec2-user -e ansible_password=DevOps321 -e env=dev -e component=frontend expense.yml
+
 
  1) Add the disk ( On UI ) 
     2) Expand the disk : sudo growpart /dev/nvme0n1 4 ( 4 is the partition number ) ; expands the partition

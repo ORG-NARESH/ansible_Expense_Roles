@@ -1,0 +1,6 @@
+- name: play Install component {{component}}-{{env}} with ansible pull
+  hosts: localhost
+  become: yes
+  roles:
+    -  common
+    - "{{ component }}"
