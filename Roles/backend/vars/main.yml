@@ -1,4 +1,5 @@
 component: ""
 SQL_HOST: "mysql-{{env}}.eternallearnings.shop"
-vault_token: hvs.3emIVhWDWFRTogKqmmXvkPe3  # Replace with your Vault token
+
 vault_url: http://vault.eternallearnings.shop:8200
+vault_token: ""
