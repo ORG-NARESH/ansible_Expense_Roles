@@ -1,2 +1,5 @@
 - name: setting up server name for this instance
   ansible.builtin.shell: set-hostname "{{component}}-{{env}}"
+
+- name: install hvac for secrets
+  ansible.builtin.shell: pip install hvac             

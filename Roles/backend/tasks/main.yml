@@ -66,14 +66,26 @@
     executable: /usr/bin/pip3.11
 
 
+# - name: injecting schema
+#   community.mysql.mysql_db:
+#    name: all
+#    state: import
+#    target: /app/schema/backend.sql
+#    login_host: "{{SQL_HOST}}"
+#    login_user: root
+#    login_password: ExpenseApp@1
+
+
+
+##WITH VAULT###############
 - name: injecting schema
   community.mysql.mysql_db:
    name: all
    state: import
    target: /app/schema/backend.sql
    login_host: "{{SQL_HOST}}"
-   login_user: root
-   login_password: ExpenseApp@1
+   login_user: "{{ lookup('hashi_vault', 'expense-dev/mysql:msql_root', token=vault_token, url=vault_url) }}"
+   login_password: "{{ lookup('hashi_vault', 'expense-dev/mysql:mysql_pass', token=vault_token, url=vault_url) }}"
 
 
 

@@ -1,1 +1,3 @@
 component: ""
+vault_token: hvs.3emIVhWDWFRTogKqmmXvkPe3  # Replace with your Vault token
+vault_url: http://vault.eternallearnings.shop:8200
