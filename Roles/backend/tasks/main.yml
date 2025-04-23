@@ -63,7 +63,7 @@
     name: 
      - PyMySQL
      - cryptography
-    executable: /usr/bin/pip3.11
+    executable: /usr/bin/pip3.9
 
 
 # - name: injecting schema
