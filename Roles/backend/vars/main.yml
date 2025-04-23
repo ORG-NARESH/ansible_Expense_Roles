@@ -2,3 +2,4 @@ component: ""
 SQL_HOST: "mysql-{{env}}.eternallearnings.shop"
 vault_url: https://vault.eternallearnings.shop:8200
 vault_token: hvs.3emIVhWDWFRTogKqmmXvkPe3
+secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/mysql token={{ vautl_token }} url={{ vault_url }} validate_certs=False') }}"
