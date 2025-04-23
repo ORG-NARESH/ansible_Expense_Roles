@@ -84,8 +84,8 @@
    state: import
    target: /app/schema/backend.sql
    login_host: "{{SQL_HOST}}"
-   login_user: "{{ lookup('hashi_vault', '/v1/expense-dev/data/mysql:msql_root', token=vault_token, url=vault_url, validate_certs=False) }}"
-   login_password: "{{ lookup('hashi_vault', '/v1/expense-dev/data/mysql:mysql_pass', token=vault_token, url=vault_url, validate_certs=False) }}"
+   login_user: "{{ lookup('hashi_vault', 'expense-dev/data/mysql:msql_root', token=vault_token, url=vault_url, validate_certs=False) }}"
+   login_password: "{{ lookup('hashi_vault', 'expense-dev/data/mysql:mysql_pass', token=vault_token, url=vault_url, validate_certs=False) }}"
 
 
 
