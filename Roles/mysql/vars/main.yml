@@ -1,4 +1,3 @@
 component: ""
-vault_url: https://vault.eternallearnings.shop:8200
-vault_token: hvs.3emIVhWDWFRTogKqmmXvkPe3
-secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/mysql token={{ vautl_token }} url={{ vault_url }} validate_certs=False') }}"
+
+secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/mysql token=hvs.3emIVhWDWFRTogKqmmXvkPe3 url=https://vault.eternallearnings.shop:8200 validate_certs=False') }}"
