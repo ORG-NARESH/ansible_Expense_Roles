@@ -3,4 +3,4 @@ frontend-prod.eternallearnings.shop
 [backend]
 backend-prod.eternallearnings.shop ansible_python_interpreter=/usr/bin/python3.11
 [mysql]
-mysql-prod.eternallearnings.shop
+mysql-prod.eternallearnings.shop  ansible_python_interpreter=/usr/bin/python3.11
