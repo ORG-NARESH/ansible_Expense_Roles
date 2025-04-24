@@ -38,7 +38,7 @@
 - name: Copy file with owner and permissions
   ansible.builtin.template:
     src: expense.conf
-    dest: /etc/nginx/default.d/expense.conf
+    dest: `/etc/nginx/default.d/expense.conf`
 
 - name: Start and enable service nginx
   ansible.builtin.service:
