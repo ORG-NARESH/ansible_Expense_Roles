@@ -1,2 +1,2 @@
 component: ""
-secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/mysql token=hvs.3emIVhWDWFRTogKqmmXvkPe3 url=https://3.234.224.238:8200 validate_certs=False') }}"
+secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/mysql token=hvs.3emIVhWDWFRTogKqmmXvkPe3 url=https://vault.eternallearnings.shop:8200 validate_certs=False') }}"
