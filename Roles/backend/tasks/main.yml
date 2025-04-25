@@ -66,26 +66,26 @@
     executable: pip3.11
 
 
-- name: injecting schema
-  community.mysql.mysql_db:
-   name: all
-   state: import
-   target: /app/schema/backend.sql
-   login_host: "{{SQL_HOST}}"
-   login_user: root
-   login_password: ExpenseApp@1                                                     
-
-
-
-##WITH VAULT###############
 # - name: injecting schema
 #   community.mysql.mysql_db:
 #    name: all
 #    state: import
 #    target: /app/schema/backend.sql
 #    login_host: "{{SQL_HOST}}"
-#    login_user: "{{ secrets.mysql_root }}"
-#    login_password: "{{ secrets.mysql_pass  }}"
+#    login_user: root
+#    login_password: ExpenseApp@1                                                     
+
+
+
+#WITH VAULT###############
+- name: injecting schema
+  community.mysql.mysql_db:
+   name: all
+   state: import
+   target: /app/schema/backend.sql
+   login_host: "{{SQL_HOST}}"
+   login_user: "{{ secrets.mysql_root }}"
+   login_password: "{{ secrets.mysql_pass  }}"
 
 
 
