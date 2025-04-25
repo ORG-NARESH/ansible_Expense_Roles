@@ -73,7 +73,7 @@
    target: /app/schema/backend.sql
    login_host: "{{SQL_HOST}}"
    login_user: root
-   login_password: ExpenseApp@1
+   login_password: ExpenseApp@1                                                     
 
 
 
