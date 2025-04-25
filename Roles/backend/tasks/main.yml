@@ -63,7 +63,7 @@
     name: 
      - PyMySQL
      - cryptography
-    executable: pip3.11
+    executable: /usr/bin/pip3.11
 
 
 # - name: injecting schema
@@ -86,6 +86,7 @@
    login_host: "{{SQL_HOST}}"
    login_user: "{{ secrets.mysql_root }}"
    login_password: "{{ secrets.mysql_pass  }}"
+   executable: /usr/bin/pip3.11
 
 
 
