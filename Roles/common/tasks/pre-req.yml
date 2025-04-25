@@ -4,5 +4,5 @@
 - name: install hvac for secrets
   ansible.builtin.pip:
     name: hvac
-    state: present
-    executable: /usr/bin/pip3.11                      
+    executable: pip3.11
+                      
