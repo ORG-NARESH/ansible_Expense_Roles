@@ -25,7 +25,7 @@
 
 
 - name: reset passworf for root
-  ansible.builtin.shell: mysql_secure_installation --set-root-pass {{ secrets.mysql_pass }}
+  ansible.builtin.shell: mysql_secure_installation --set-root-pass {{ secrets.MYSQL_PASS }}
 
 
 
