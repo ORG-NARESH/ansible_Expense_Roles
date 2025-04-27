@@ -1,4 +1,4 @@
 component: ""
 SQL_HOST: "mysql-{{env}}.eternallearnings.shop"
  
-secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/MYSQL token={{ token }} url=https://vault.eternallearnings.shop:8200 validate_certs=False') }}"
+secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=expense-dev/data/MYSQL_CRED token={{ token }} url=https://vault.eternallearnings.shop:8200 validate_certs=False') }}"
