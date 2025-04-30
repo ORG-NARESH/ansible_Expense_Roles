@@ -83,7 +83,7 @@
    state: import
    target: /app/schema/backend.sql
    login_host: "{{SQL_HOST}}"
-   login_user: "{{ secrets.MYSQL_ROOT }}"
+   login_user: "{{ secrets.MYSQL_USER }}"
    login_password: "{{ secrets.MYSQL_PASS  }}"
    
 
