@@ -3,6 +3,11 @@
     name: common
     tasks_from: pre-req
 
+- name: Run tasks/main.yaml
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: main.yml
+
 - name: Remove existing Node.js version
   yum:
     name: nodejs
