@@ -1,0 +1,4 @@
+- name: Configuring node exporter
+  ansible.builtin.import_role:
+    name: prometheus_nodeexporter
+    tasks_from: main.yml
